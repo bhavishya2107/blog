@@ -1,0 +1,259 @@
+---
+title: Understanding JS Array Methods which can make programming not so overwhelming for beginners
+author: Bhavishya Negi
+date: 2019-04-30
+hero: ./images/hero_1.jpg
+excerpt: While learning to code everyone goes through the phase where everything in programming is so overwhelming and people feel like quitting this profession/habit, how array methods work and all the loops make everyone go crazy at first...It made me sure.
+---
+
+> While learning to code everyone goes through the phase where everything in programming is so overwhelming and people feel like quitting this profession/habit, how array methods work and all the loops make everyone go crazy at first...It made me sure.
+
+Here, I am going to take an object and apply the following array methods:
+
+**1\. Array.map()**
+
+**2\. Array.filter()**
+
+**3\. Array.reduce()**
+
+**4\. Array.forEach()**
+
+There are other array methods like push, pop, splice, indexOf, reverse, join, etc.  
+I will be explaining these while applying and solving questions with respect to the object I have taken.  
+I have selected the above methods because each of them takes a callback function and these are used most of the time in real-world scenarios.
+
+I have taken an object called `got` yes, this is referring to our favorite series Game of Thrones which was eventually ruined in the last season.  
+The object contains all the names of the houses with each character name in the show separated into an array of objects and further nested into objects with arrays.  
+Get the object click on the link [_OBJECT_](https://drive.google.com/open?id=1HyVnNiB2mdLLc8kDcKZdXLv0uhLM7W9e)_._
+
+![](https://miro.medium.com/max/1982/1\*vi6xUz3y6OS8L6I5x3yBfw.png)
+
+
+An instance of got object in the browser console
+
+So let us begin the game of array methods,  
+  
+I am going to write a function called `countAllPeople()`which will count the total number of people in the `got` object.
+
+using map and reduce methods to find the total count the total people in the object
+
+So in `countAllPeople()` we first select the gWith the growing community interest in Gatsby, we hope to create more resources that make it easier for anyone to grasp the power of this incredible tool.ot object than the houses array and `map()` over it which returns an array consisting the length of each people array inside each object present in the houses array.
+
+`map()` always returns an array which is equivalent to the array size of the original array on which it is applied.  
+It takes 3 parameters current value, array index and the array itself.
+
+After applying `map()`it returns an array with the length of each people array.
+
+```
+let  houseArrayLength  = _got.houses.map_((_e_)  
+=>  {_return e.people.length_})return houseArrayLength
+```
+
+![](https://miro.medium.com/max/976/1\*d4y1RmF15TCbClOQFesVWQ.png)
+
+After this to accumulate the array length total I have used the `reduce()`method.  
+`reduce()` can take up to 4 parameters accumulator, current value, array index, and the array itself.  
+The accumulator can be set initially as per the requirement or else it takes the first element in the array as its value.
+
+It can return any dataType either a number, array, object or string.  
+The best way to use it is by seeing the output for example if the output required is an object we take an empty object as the accumulator’s initial value.
+
+```
+let  peopleLength  = _houseArrayLength.reduce_((_acc_, _cv_)  
+=>  {_return_ acc  + _cv_})_return_ peopleLength
+```
+
+Here, acc is the accumulator which is initialized as the first element in the array and returns the `peopleLength`which is 33.
+
+![](https://miro.medium.com/max/1194/1\*TXYFrTtqlrmTI7BIQzqbOg.png)
+
+On calling the function it returns the total People in the object got
+
+After looking at `map()` and `reduce()` we take a look at `forEach()` and `filter()`.
+
+`Array.forEach()` is similar to for loop but the whole process is automated and it returns undefined every time it is called.  
+`Array.forEach()` performs an action to each of the elements in the array where it is applied.
+
+Whereas, `filter()` returns an array either the same size or lesser than the original it takes a callback function which is invoked every time `filter()` is called, it returns the array with elements which satisfy a particular condition.
+
+Let's understand the two function with an example on our `got` object.  
+Now we will write a function called `nameWithS()` which will return all the names which contain the letter ‘S’ or ‘s’.  
+We again start with taking the object and targeting the `houses` array as we did for the `countAllPeople()` , here we apply the `Array.reduce()` method and this time we initialize the value of accumulator to be an empty array.
+
+`cv` here is an object which contains the key people which is an array hence we apply the `forEach()` method on array people and we push the names inside the people array to the accumulator.
+
+Now the `acc` is an array with all the names.  
+We apply `filter()` method on the `acc` and `name` is the element which targets each name in the `acc` now we convert all the names into lowercase and check whether it includes the letter ‘s’.  
+Now `filter()` filters out the `name` elements that satisfy the condition and returns the array which contains every element which includes the letter ‘s’.
+
+![](https://miro.medium.com/max/2242/1\*riC4kC6LZOlRGgOY2X0pFw.png)
+
+Now we have covered 4 methods wow that's so cool.  
+I hope you are following all this way if not just look at it again and practice. This is how you make a base foundation and eventually you get grip on these methods.
+
+> SO PRACTICE PRACTICE PRACTICE !!! 😊
+
+![](https://miro.medium.com/max/10944/0\*FSGlbPDcq2xJCeN-)
+
+* * *
+
+Let us look at some more important array methods,
+=================================================
+
+I will be listing all of them and one by one will be taking examples and explaining them also, in the end, I will leave an image listing whether a method mutates the array or not.  
+It will be really handy for you guys to check on whether which method to use.
+
+**1.push()**
+
+`Array.push()` adds an element to the last index of the array.
+
+```
+arr = \[\]arr.push(2) // arr = \[2\]
+```
+
+**2\. pop()**
+
+`Array.pop()` removes the last index element of the array.
+
+```
+arr = \[1,3\]arr.pop() // arr = \[1\]
+```
+
+**3\. shift()**
+
+`Array.shift()` removes an item from the beginning of the array.
+
+```
+arr = \[1,3\]arr.shift() // arr = \[3\]
+```
+
+**4\. unshift()**
+
+`Array.unshift()` adds an item at the beginning of the array.
+
+```
+arr = \[1,3\]arr.unshift(3) // arr = \[3,1,3\]
+```
+
+**5\. splice()**
+
+`Array.splice()` mutates the array, it can replace elements add new elements and remove them.  
+It takes 3 parameters at max the syntax for splice `Array.splice(startIndex,deleteCount,add new elements)`
+
+```
+let arr = \["I", "study", "JavaScript"\];  
+  
+// from index 2  
+// delete 0  
+// then insert "complex" and "language"  
+arr.splice(2, 0, "complex", "language");  
+  
+alert( arr ); // "I", "study", "complex", "language", "JavaScript"
+```
+
+**6\. slice()**
+
+`Array.slice()` returns a new array copying to it all items from index `start` to `end` (not including `end`). Both `start` and `end` can be negative  
+Syntax:  
+`arr.slice([start], [end])`
+
+```
+let arr = \["t", "e", "s", "t"\];  
+  
+alert( arr.slice(1, 3) ); // e,s (copy from 1 to 3)  
+  
+alert( arr.slice(-2) ); // s,t (copy from -2 till the end)
+```
+
+**7\. reverse()**
+
+The method `arr.reverse()` reverses the order of elements in `arr`.
+
+```
+let arr = \[1, 2, 3, 4, 5\];arr.reverse();  
+  
+alert( arr ); // 5,4,3,2,1
+```
+
+**8\. concat()**
+
+The method `arr.concat()` creates a new array that includes values from other arrays and additional items.
+
+```
+let arr = \[1, 2\];  
+  
+alert( arr.concat(\[3, 4\]) ); // 1,2,3,4  
+  
+alert( arr.concat(\[3, 4\], \[5, 6\]) ); // 1,2,3,4,5,6  
+  
+alert( arr.concat(\[3, 4\], 5, 6) ); // 1,2,3,4,5,6
+```
+
+**9\. some()/every()**
+
+`arr.some()` will return `true` if the condition passed satisfies for any element in the `arr`
+
+```
+const array = \[1, 2, 3, 4, 5\];
+const even = (element) => element % 2 === 0;console.log(array.some(even));  
+//output: true
+```
+
+`arr.every()` will return `true` if all the elements satisfy the condition
+
+```
+const isBelowThreshold = (currentValue) => currentValue < 40;
+const array1 = \[1, 30, 39, 29, 10, 13\];
+console.log(array1.every(isBelowThreshold));  
+//output: true
+```
+
+**10\. find()/findIndex()**
+
+The `find()` method returns the value of the first element in the provided array that satisfies the condition in the callback function.
+
+```
+const array1 = \[5, 12, 8, 130, 44\];
+const found = array1.find(element => element > 10);console.log(found);  
+//output: 12
+```
+
+Whereas, if only the index of the element is required to be returned we use `findIndex()` method.
+
+The `findIndex()` method returns the index of the first element in the array that satisfies the provided condition. Otherwise, it returns -1, indicating that no element passed given condition.
+
+I have made a table, that lists out the mutating and non-mutating methods which I have mentioned above.
+
+![](https://miro.medium.com/max/1674/1\*hav8uvwoznX0JITWDOCvFw.png)
+
+Mutate vs Non-Mutate
+
+* * *
+
+Another nice thing to note is that many of these methods can be chained together, eliminating the need for extra variables, and making your code cleaner and easier to read and follow.
+
+By making a composition of methods you avoid confusion and the best thing every developer craves to make his code as tiny as possible these methods can help you achieve that and make you a hotshot.
+
+So, that’s it Thank you, folks!!!  
+For reading my article, let me know whether you have any queries regarding the article or the concepts which I explained by writing a response at the bottom.
+
+I will be writing more articles on the remaining array methods that I use and string methods.
+
+FOLLOW ME TO READ MORE AND DIVE INTO THE IMMERSIVE WORLD OF JS
+--------------------------------------------------------------
+
+Check out my Github profile for the exicitng projects I work on  
+[https://github.com/bhavishya2107](https://github.com/bhavishya2107)
+
+**THANKYOU !!!**
+----------------
+
+* * *
+
+References:
+===========
+
+*   JavaScript info is a great site which does a great job of explaining and providing examples of all the array methods mentioned above:  
+    [https://javascript.info/array-methods](https://javascript.info/array-methods)
+*   Mozilla also has very helpful docs (plus their Try It Yourself option is great for experimentation):  
+    [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
